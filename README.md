@@ -1,7 +1,9 @@
 # TCPSocket
 Socket TCP multithreading en Python
 
-Server.py: script consumidor de datos que escucha las peticiones que llegan a la direccion establecida por las varibales HOST, PORT 
+Server.py: 
+    
+    Script consumidor de datos que escucha las peticiones que llegan a la direccion establecida por las varibales HOST, PORT 
     mediante un socket TCP definido por la clase ThreadedTCPServer. 
     
     Cada petición se gestiona mediante un nuevo hilo que ejecutará la funcion handle() de la clase RequestHandler. 
@@ -16,7 +18,9 @@ Server.py: script consumidor de datos que escucha las peticiones que llegan a la
     
     Tambien se crea un archivo log en la ruta LOG_FOLDER que registra la comunicacion.
     
-Client.py: script generador de datos que envia al destino establecido por las varibales SERVER, PORT mediante un socket TCP.
+Client.py: 
+
+    Script generador de datos que envia al destino establecido por las varibales SERVER, PORT mediante un socket TCP.
 
     En el momento que se conecta al servidor se establece una alarma en 60 segundo que terminará el proceso psado ese tiempo.
     
