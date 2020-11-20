@@ -11,10 +11,13 @@ Server.py:
     Podrá haber en ejecución tantos hilos como la variable MAX_THREADS indique (incluyendo el hilo principal) en caso de que se llegue
     al limite de hilos las nuevas peticiones se ignorarán. 
     
-    Respecto a los datos consumidos son gestionados por la clase SharedData, esta clase consta de un diccionario (la clave es la cadena, y el valor
-    el numero de veces que se ha recibido) donde son almacenados, un semafor lock, el cual gestiona el acceso de los hilos concurrentes al diccionario.
+    Respecto a los datos consumidos son gestionados por la clase SharedData, esta clase consta de un diccionario 
+    (la clave es la cadena, y el valor el numero de veces que se ha recibido) donde son almacenados, un semafor lock,
+    el cual gestiona el acceso de los hilos concurrentes al diccionario.
     
-    Cabe destacar que esta clase tambien se encarga de realizar la recuperación y almacenamiento de los datos de forma permanente almacenandolos en el fichero que viene dado por las variables REC_FOLDER+REC_FILE, la escritura de los datos en este se hace en el mismo momento que se actualiza el diccionario, para evitar la pérdida de datos por interrupciones inesperadas.
+    Cabe destacar que esta clase tambien se encarga de realizar la recuperación y almacenamiento de los datos de forma permanente
+    almacenandolos en el fichero que viene dado por las variables REC_FOLDER+REC_FILE, la escritura de los datos en este se hace
+    en el mismo momento que se actualiza el diccionario, para evitar la pérdida de datos por interrupciones inesperadas.
     
     Tambien se crea un archivo log en la ruta LOG_FOLDER que registra la comunicacion.
     

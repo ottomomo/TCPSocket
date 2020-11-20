@@ -1,0 +1,19 @@
+- interrupciones inesperadas sobre los scripts:
+Se han realizado diferentes pruebas, envio de interrupciones de teclado, cerrar terminal en plena ejecucion, envio de señal SIGKILL.
+En las numerosas repeticiones de todas ellas, solo hubo 2 ocasiones en el que el archivo de recuperacion se corrompió.
+Seguramente fue porque se produjo el SIGKILL en el momento de escritura en el fichero.
+Si fuera necesario una solucion factible seria la implementacion de un demonio encargado de realizar copias de segurdad del fichero.
+- Validacion de los datos recibidos por parte del servidor:
+Se implementa un metodo de validacion que controla esta cuestion de manera satisfactoria.
+- Control de los recursos consumidos por los procesos:
+Se ha verificado que la ejecucion simultanea del servidor y tres clientes hacen uso de unos 50MB de memoria.
+Esta verificación se ha realizado mediante la llamada al sistema top.
+Si fuera necesario se podría incluso controlar y gestionar de forma segura el consumo de recursos mediante getrlimit/setrlimit,
+reducir el envio de logs (reduciendo asi el tamaño de los ficheros), etc.
+- numero min/maximo de peticiones al servidor:
+Se controla el limite maximo de peticiones al servidor de manera satisfactoria. No se ha implementado, por cuestiones de tiempo,
+la posibilidad de que el servidor no gestione peticiones hasta obtener 3 conexiones.
+- Perdida de datos en la comunicacion:
+Se hace uso de ficheros log para registrar cualquier envio/recepcion.
+Si fuera necesario se podría implementar el mismo procedimiento de recuperacion de datos en los clientes, el cual
+almacenaría los datos generados enviados que no han recibido confirmacion de recepcion. 
